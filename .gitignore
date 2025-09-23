@@ -19,3 +19,8 @@
 !/hypr/**
 !/rofi/**
 !/spicetify/**
+
+ !/.p10k.zsh
+ !/.zsh_history
+ !/.zshrc
+
