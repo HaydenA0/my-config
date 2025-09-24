@@ -10,6 +10,7 @@
 !/hypr/
 !/rofi/
 !/spicetify/
+!/nvim/
 !/nostress.jpg
 !/README.md
 
@@ -19,6 +20,7 @@
 !/hypr/**
 !/rofi/**
 !/spicetify/**
+!/nvim/**
 
 !.p10k.zsh
 !.zsh_history
