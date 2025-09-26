@@ -1,27 +1,31 @@
 return {
-	{
-		"neovim/nvim-lspconfig",
-		dependencies = {
-			"folke/lazydev.nvim",
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "folke/lazydev.nvim",
+    },
     ft = "lua",
     opts = {
       library = {
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        { path = "${3rd}/luv/library", words = { "vim.uv" } },
       },
     },
-		},
-		config = function()
-			require('lspconfig').pyright.setup {}
-			require('lspconfig').clangd.setup {}
-			require("lspconfig").lua_ls.setup{}
-		end
+    config = function()
+      -- Configure LSP servers
+      vim.lsp.config("pyright", {})
+      vim.lsp.config("clangd", {})
+      vim.lsp.config("lua_ls", {})
+      vim.lsp.config("dockerls", {
+        cmd = require'lspcontainers'.command('dockerls'),
+        root_dir = require'lspconfig/util'.root_pattern(".git", vim.fn.getcwd()),
+      })
 
-	},
-	vim.api.nvim_set_keymap(
-  'n',
-  '<C-s>',
-  '<cmd>lua vim.diagnostic.open_float()<CR>',
-  { noremap = true, silent = true }
-)
-
+      -- Enable LSP servers
+      vim.lsp.enable("pyright")
+      vim.lsp.enable("clangd")
+      vim.lsp.enable("lua_ls")
+      vim.lsp.enable("dockerls")
+    end,
+  },
 }
+
