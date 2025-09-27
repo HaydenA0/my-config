@@ -1,10 +1,11 @@
 vim.o.swapfile = false
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.signcolumn = "auto"
+vim.opt.signcolumn = "no"
 vim.keymap.set("v", "<C-c>", '"+y', { noremap = true, silent = true })
 
 vim.g.mapleader = " "
+vim.opt.fillchars:append({ eob = " " })
 require("config.lazy")
 vim.api.nvim_set_keymap("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { silent = true })
@@ -84,4 +85,21 @@ vim.keymap.set("n", "<leader>jj", "<cmd>:lua require('pdfview.renderer').next_pa
 -- Navigate to the previous page in the PDF
 vim.keymap.set("n", "<leader>kk", "<cmd>:lua require('pdfview.renderer').previous_page()<CR>", { desc = "PDFview: Previous page" })
 
+
+-- Delete all buffers except the current one
+function _G.cleanBuffers()
+  local current = vim.api.nvim_get_current_buf()
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_is_loaded(buf)
+      and vim.bo[buf].buflisted
+      and buf ~= current
+    then
+      vim.api.nvim_buf_delete(buf, { force = true })
+    end
+  end
+  print("Cleaned all other buffers.")
+end
+
+-- Optional: create a convenient command
+vim.api.nvim_create_user_command("CleanBuffers", cleanBuffers, {})
 

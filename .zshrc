@@ -66,7 +66,7 @@ vol() {
 
 ff() {
   local selected
-  selected=$(find ~/dev -mindepth 1 \
+  selected=$(find ./ -mindepth 1 \
   -not -path '*/.*' -not -name '.*' \
   -not -path '*/__*' -not -name '__*' | fzf)
 
@@ -74,52 +74,31 @@ ff() {
     if [[ -d "$selected" ]]; then
       cd -- "$selected"
     elif [[ -f "$selected" ]]; then
-      cd -- "$selected"
+      nvim -- "$selected"
     fi
   fi
 }
-o() {
-  if [ $# -eq 0 ]; then
-    echo "Usage: o <command>"
-    echo "Example: o ls -l"
-    return 1
-  fi
-  "$@" | tee >(wl-copy)
-}
 
+cf() {
+  local selected
+  selected=$(find ~/ -mindepth 1 \
+  -not -path '*/.*' -not -name '.*' \
+  -not -path '*/__*' -not -name '__*' | fzf)
+
+  if [[ -n "$selected" ]]; then
+    if [[ -d "$selected" ]]; then
+      cd -- "$selected"
+    elif [[ -f "$selected" ]]; then
+      nvim -- "$selected"
+    fi
+  fi
+}
 
 autoload -U colors && colors
 alias reload="source ~/.zshrc"
 source <(fzf --zsh)
 
 
-fcd() {
-  local selection key
-
-  while true; do
-    # Show directories with '..' first
-    selection=$( (echo ".."; fd --type d . --hidden --max-depth 1) \
-      | fzf --prompt="Jump to: " \
-            --header="[Enter] to descend | [Esc] to exit | Alt-h to go up" \
-            --preview="lsd -l --group-dirs=first --color=always {}" \
-            --expect=alt-h)
-
-    # Exit if nothing selected
-    [[ -z "$selection" ]] && break
-
-    # Split key and chosen directory
-    key=$(head -1 <<< "$selection")
-    selection=$(tail -n +2 <<< "$selection")
-
-    if [[ "$selection" == ".." || "$key" == "alt-h" ]]; then
-      cd .. || break
-    elif [[ -n "$selection" ]]; then
-      cd -- "$selection" || break
-    else
-      break
-    fi
-  done
-}
 
 alias c="clear"
 unalias cd 2>/dev/null
