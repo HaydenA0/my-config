@@ -19,6 +19,7 @@ return {
 					python = {
 						command = { "ipython", "--no-autoindent" },
 					},
+					        block_dividers = { "#%%", "# %%" },    -- key line
 					-- Add any other languages you use here
 					-- lua = {
 					--   command = { "lua" },
@@ -46,6 +47,8 @@ return {
 
 				-- Send the entire file to the REPL
 				send_file = "<leader>sf",
+				-- Send a block 
+				  send_code_block          = "<space>sb",
 
 				-- Other useful mappings
 				cr = "<leader>s<cr>", -- Send and execute line
@@ -103,3 +106,4 @@ return {
 -- <leader>sf	Send the entire File
 -- <leader>rq	Quit and exit the REPL process
 -- <leader>rc	Clear the REPL screen
+-- <leader>sb	Send a block 
