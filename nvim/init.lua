@@ -1,7 +1,7 @@
 vim.o.swapfile = false
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.signcolumn = "no"
+vim.opt.signcolumn = "auto"
 vim.keymap.set("v", "<C-c>", '"+y', { noremap = true, silent = true })
 
 vim.g.mapleader = " "

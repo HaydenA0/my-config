@@ -39,7 +39,9 @@ return {
 				},
 			},
 			sections = {
-				lualine_a = { mode },
+				  lualine_a = {
+    { mode, padding = { left = 0, right = 0 } },
+  },
 				lualine_b = { "branch", "diagnostics" },
 				lualine_c = { "filename" },
 				lualine_x = {},
