@@ -22,7 +22,7 @@ end
 
 local function setup_user_command()
 	local target_file = "/home/anasr/notes/todo.md"
-	vim.api.nvim_create_user_command("TD", function()
+	vim.api.nvim_create_user_command("OpenFloatingTodo", function()
 		open_floating(target_file)
 	end, {})
 end
