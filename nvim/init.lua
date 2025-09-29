@@ -110,4 +110,4 @@ vim.api.nvim_create_user_command("CleanBuffers", cleanBuffers, {})
 
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 
-require("todofloat")
+require("todofloat").setup()
