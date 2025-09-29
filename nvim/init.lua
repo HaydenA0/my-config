@@ -51,7 +51,7 @@ vim.o.conceallevel = 2
 vim.o.concealcursor = "nc"
 
 
-vim.keymap.set( "n" , "<A-Tab>", "<C-w>w", { noremap = true })
+vim.keymap.set( {"n"} , "<A-Tab>", "<C-w>w", { noremap = true })
 vim.keymap.set( "n" , "<A-j>", "<C-w>j", { noremap = true })
 vim.keymap.set( "n" , "<A-k>", "<C-w>k", { noremap = true })
 vim.keymap.set( "n" , "<A-l>", "<C-w>l", { noremap = true })
