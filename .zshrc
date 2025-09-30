@@ -81,7 +81,7 @@ ff() {
 
 cf() {
   local selected
-  selected=$(find ~/ -mindepth 1 \
+  selected=$(find ~/ -mindepth 1 -type d \
   -not -path '*/.*' -not -name '.*' \
   -not -path '*/__*' -not -name '__*' | fzf)
 
@@ -93,8 +93,10 @@ cf() {
     fi
   fi
 }
+alias a="cf"
 
 autoload -U colors && colors
+
 alias reload="source ~/.zshrc"
 source <(fzf --zsh)
 
@@ -335,7 +337,7 @@ bindkey '^I' autosuggest-accept
 bindkey '^[[Z' complete-word     
 bindkey "$terminfo[kcbt]" menu-complete
 
-alias tim="tty-clock"
+alias tim="tty-clock -x -s -c"
 alias download_audio="yt-dlp -f bestaudio"
 alias download_video="yt-dlp"
 alias class="hyprctl clients"
