@@ -8,7 +8,7 @@ return {
 	{
 		"mason-org/mason-lspconfig.nvim",
 		opts = {
-			ensure_installed = { "lua_ls", "pyright" },
+			ensure_installed = { "lua_ls", "rust_analyzer" },
 		},
 		dependencies = {
 			{ "mason-org/mason.nvim", opts = {} },
@@ -19,7 +19,6 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			vim.lsp.enable("lua_ls")
-			vim.lsp.enable("pyright")
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
