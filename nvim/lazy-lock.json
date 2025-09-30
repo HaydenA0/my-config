@@ -34,5 +34,6 @@
   "transparent.nvim": { "branch": "main", "commit": "8ac59883de84e9cd1850ea25cf087031c5ba7d54" },
   "vague.nvim": { "branch": "main", "commit": "25107deb4221993429a4af404618fef066711cf3" },
   "venv-lsp.nvim": { "branch": "main", "commit": "2c1414a87a7602cfa42201550e030651c4be77fc" },
+  "vim-floaterm": { "branch": "master", "commit": "fd4bdd66eca56c6cc59f2119e4447496d8cde2ea" },
   "vimtex": { "branch": "master", "commit": "2e1bbabeb2c34bb17d7bc8cfdf8f95b16dd0db0c" }
 }

@@ -95,6 +95,9 @@ vim.keymap.set(
 	"<cmd>:lua require('pdfview.renderer').previous_page()<CR>",
 	{ desc = "PDFview: Previous page" }
 )
+vim.keymap.set("n", "<C-;>", ":FloatermToggle<CR>", {
+	desc = "Toogling the terminal",
+})
 
 function _G.cleanBuffers()
 	local current = vim.api.nvim_get_current_buf()
@@ -108,4 +111,4 @@ end
 
 vim.api.nvim_create_user_command("CleanBuffers", cleanBuffers, {})
 
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+--vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
