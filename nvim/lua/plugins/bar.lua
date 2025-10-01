@@ -39,16 +39,24 @@ return {
 				},
 			},
 			sections = {
-				lualine_a = {},
-				lualine_b = { "branch", "diagnostics" },
-				lualine_c = { "filename" },
-				lualine_x = {},
-				lualine_y = {
+				lualine_a = { "filename" },
+				lualine_b = { "branch" },
+				lualine_c = { "diagnostics" },
+				lualine_x = {
 					function()
-						return "UNIX"
+						return "::ARCH-LINUX"
 					end,
 				},
-				lualine_z = {},
+				lualine_y = {
+					function()
+						return "::UNIX-07"
+					end,
+				},
+				lualine_z = {
+					function()
+						return "::HAJAR"
+					end,
+				},
 			},
 			inactive_sections = {
 				lualine_a = {},
