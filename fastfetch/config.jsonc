@@ -13,34 +13,24 @@
 	"height": 10
     },
     "display": {
-        "separator": " ›  "
+        "separator": "   "
     },
     "modules": [
 	"break",
-        {
-            "type": "os",
-            "key": "OS  ",
-            "keyColor": "31",  // = color1
-        },
+		{
+    "type": "custom",
+    "format": "\u001b[34mたばれ\u001b[0m"
+},
+
         {
             "type": "kernel",
             "key": "KER ",
             "keyColor": "32",
         },
         {
-            "type": "shell",
-            "key": "SH  ",
-            "keyColor": "34", 
-        },
-        {
-            "type": "terminal",
-            "key": "TER ",
-            "keyColor": "35", 
-        },
-        {
-            "type": "wm",
-            "key": "WM  ",
-            "keyColor": "36", 
+            "type": "media",
+            "key": "MSC  ",
+            "keyColor": "40", 
         },
         {
             "type": "battery",
@@ -52,7 +42,17 @@
             "key": "DIK  ",
             "keyColor": "38", 
         },
+        {
+            "type": "uptime",
+            "key": "UPT  ",
+            "keyColor": "40", 
+        },
+		{
+    "type": "custom",
+    "format": "\u001b[31m愛してる\u001b[0m"
+}
+
+
 	
-        "break",
     ]
 }
