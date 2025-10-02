@@ -8,7 +8,7 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    font:                        "IosevkaTermSlab Nerd Font Mono 20";
+    font:                        "Iosevka Nerd Font Mono 19";
     background:                  #171616;
     background-alt:              #252525;
     foreground:                  #FFFFFF;
@@ -25,8 +25,8 @@ window {
     anchor:                      center;
     fullscreen:                  false;
     width:                       1000px;
-    x-offset:                    4px;
-    y-offset:                    4px;
+    x-offset:                    0px;
+    y-offset:                    0px;
 
     /* properties for all widgets */
     enabled:                     true;
@@ -50,7 +50,7 @@ imagebox {
     height:           500px;
 
     /* Your original properties */
-    padding:          40px;
+    padding:          20px;
     background-color: transparent;
     background-image: url("/home/anasr/Wallpapers/kitten_rofi.jpg", height);
     border-radius:    22px;
@@ -136,7 +136,7 @@ listview {
 element {
     enabled:                     true;
     spacing:                     15px;
-    padding:                     8px;
+    padding:                     0px;
     border-radius:               10px;
     background-color:            transparent;
     text-color:                  @foreground;
@@ -209,3 +209,4 @@ kb-remove-to-eol: "Control+Shift+e";
 kb-mode-previous: "Shift+Left,Control+Shift+Tab,Control+h";
 kb-remove-char-back: "BackSpace";
 }
+

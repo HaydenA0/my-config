@@ -6,6 +6,7 @@ return {
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
+		snippets = { preset = "luasnip" },
 		keymap = {
 			preset = "super-tab",
 
@@ -17,13 +18,14 @@ return {
 			nerd_font_variant = "mono",
 		},
 
-		completion = { documentation = { auto_show = false } },
+		completion = { documentation = { auto_show = false }, menu = { border = "rounded" } },
 
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
+			default = { "snippets", "lsp", "path", "buffer" },
 		},
 
 		fuzzy = { implementation = "prefer_rust_with_warning" },
+		signature = { enabled = true },
 	},
 	opts_extend = { "sources.default" },
 }

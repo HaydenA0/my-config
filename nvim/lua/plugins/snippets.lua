@@ -7,21 +7,18 @@ return {
 			local ls = require("luasnip")
 			local s = ls.snippet
 			local t = ls.text_node
+			local i = ls.insert_node
+			local extras = require("luasnip.extras")
+			local replace = extras.rep
 
-			-- Simple Python cell snippet
 			ls.add_snippets("python", {
-				s("cell", {
-					t({ "#%%", "#%%" }),
+				s("hello", {
+					t('print("Hello'),
+					i(1),
+					t(' world")'),
+					i(1),
 				}),
 			})
-
-			-- optional keymaps to expand/jump
-			vim.keymap.set({ "i", "s" }, "<C-k>", function()
-				ls.expand_or_jump()
-			end, { silent = true })
-			vim.keymap.set({ "i", "s" }, "<C-j>", function()
-				ls.jump(-1)
-			end, { silent = true })
 		end,
 	},
 }
