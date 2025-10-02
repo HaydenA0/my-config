@@ -5,10 +5,10 @@ entry {
 }
 
 configuration {
-    font: "Noto Sans Regular 19";
+    font: "Inter SemiBold 15";
     lines: 10;
     fixed-num-lines: true;
-    padding: 10px;
+    padding: 00px;
 }
 
 inputbar {
@@ -23,19 +23,19 @@ inputbar {
 }
 
 mainbox {
-    border: 3px;
-    border-color: rgba(255,255,255, 30%);
+    border: 2px;
+    border-color: rgba(255,255,255, 20%);
     border-radius: 9px;
     padding: 10px;
 }
 
 window {
-    border-radius: 13px;
+    border-radius: 10px;
     border: 0px solid;
     border-color: #000000;
-    background-color: rgba(00,00,00,75%);
+    background-color: rgba(05,00,00,85%);
     padding: 0px;
-    width: 50%;
+    width: 40%;
     height: 30%;
 }
 
