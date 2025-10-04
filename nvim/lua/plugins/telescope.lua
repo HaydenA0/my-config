@@ -27,6 +27,9 @@ return {
 			vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Recent files" })
 
 			vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Open buffers" })
+			vim.keymap.set("n", "/", function()
+				require("telescope.builtin").current_buffer_fuzzy_find()
+			end, { desc = "Fuzzy find in current buffer" })
 
 			vim.keymap.set("n", "<leader>fg", function()
 				builtin.live_grep({ cwd = vim.loop.cwd() })

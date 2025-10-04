@@ -1,40 +1,69 @@
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    branch = "master",
-    build = ":TSUpdate",
-    lazy = false,
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        -- parsers to install
-        ensure_installed = {
-          "lua", "vim", "vimdoc", "bash",
-          "javascript", "typescript", "html", "css",
-          "python", "json", "markdown", "markdown_inline",
-          "c", "cpp", -- added C and C++
-        },
 
-        sync_install = false,
-        auto_install = true,
+	{
+		"nvim-treesitter/nvim-treesitter",
+		branch = "master",
+		build = ":TSUpdate",
+		lazy = false,
+		config = function()
+			require("nvim-treesitter.configs").setup({
 
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = false,
-        },
+				ensure_installed = {
+					"lua",
+					"vim",
+					"vimdoc",
+					"bash",
+					"javascript",
+					"typescript",
+					"html",
+					"css",
+					"python",
+					"json",
+					"markdown",
+					"markdown_inline",
+					"c",
+					"cpp",
+				},
 
-        indent = { enable = true },
+				sync_install = false,
 
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = "gnn",
-            node_incremental = "grn",
-            scope_incremental = "grc",
-            node_decremental = "grm",
-          },
-        },
-      })
-    end,
-  },
+				auto_install = true,
+
+				highlight = {
+					enable = true,
+					additional_vim_regex_highlighting = false,
+				},
+				indent = { enable = true },
+
+				textobjects = {
+					select = {
+						enable = true,
+						lookahead = true,
+						keymaps = {
+
+							["af"] = "@function.outer",
+							["if"] = "@function.inner",
+							["al"] = "@loop.outer",
+							["il"] = "@loop.inner",
+							["ac"] = "@class.outer",
+							["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+
+							["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
+						},
+						selection_modes = {
+							["@parameter.outer"] = "v",
+							["@function.outer"] = "V",
+							["@class.outer"] = "<c-v>",
+						},
+						include_surrounding_whitespace = true,
+					},
+				},
+			})
+		end,
+	},
+
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+	},
 }
-

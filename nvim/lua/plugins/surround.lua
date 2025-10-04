@@ -1,11 +1,12 @@
-return{
-  "kylechui/nvim-surround",
-  version = "^3.0.0",
-  event = "VeryLazy",
-  config = function()
-    require("nvim-surround").setup()
-  end
-}
+return {
+	"kylechui/nvim-surround",
+	version = "*",
+	event = "VeryLazy",
+	config = function()
+		require("nvim-surround").setup({})
 
--- yssb wraps the whole line
--- cs"b changes "__" to (__)
+		vim.keymap.set("v", "w", "<Plug>(nvim-surround-visual)", {
+			desc = "Surround selection with 'w'",
+		})
+	end,
+}
