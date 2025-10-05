@@ -111,3 +111,10 @@ end
 
 vim.api.nvim_create_user_command("CleanBuffers", cleanBuffers, {})
 vim.opt.cmdheight = 0
+vim.diagnostic.config({
+	virtual_text = true,
+	severity_sort = true,
+	virtual_text = {
+		severity_min = vim.diagnostic.severity.WARN,
+	},
+})

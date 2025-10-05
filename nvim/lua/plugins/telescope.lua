@@ -16,7 +16,7 @@ return {
 
 			vim.keymap.set("n", "<leader><leader>", builtin.find_files, { desc = "Find files in current directory" })
 
-			vim.keymap.set("n", "<leader>ff", function()
+			vim.keymap.set("n", "<C-f>", function()
 				builtin.find_files({ cwd = vim.env.HOME })
 			end, { desc = "Find files in home" })
 
@@ -27,9 +27,6 @@ return {
 			vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Recent files" })
 
 			vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Open buffers" })
-			vim.keymap.set("n", "/", function()
-				require("telescope.builtin").current_buffer_fuzzy_find()
-			end, { desc = "Fuzzy find in current buffer" })
 
 			vim.keymap.set("n", "<leader>fg", function()
 				builtin.live_grep({ cwd = vim.loop.cwd() })

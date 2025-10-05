@@ -2,12 +2,20 @@ return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
-		local function mode()
-			local rec = vim.fn.reg_recording()
-			if rec ~= "" then
-				return "Recording @" .. rec
+		local function getNowPlaying()
+			local command = "playerctl -p spotify metadata --format '{{artist}} 󰻂 {{title}} - Vibing'"
+			local pipe = io.popen(command)
+			if not pipe then
+				return ""
 			end
-			return vim.fn.mode():upper()
+			local output = pipe:read("*a")
+			pipe:close()
+			local clean_output = output:match("^%s*(.-)%s*$")
+			if clean_output and clean_output ~= "" then
+				return "🎵 " .. clean_output
+			else
+				return ""
+			end
 		end
 
 		require("lualine").setup({
@@ -17,32 +25,24 @@ return {
 				section_separators = { left = "", right = "" },
 				ignore_focus = {},
 				always_divide_middle = true,
-				always_show_tabline = true,
 				globalstatus = true,
+
 				refresh = {
 					statusline = 1000,
-					tabline = 1000,
-					winbar = 1000,
-					refresh_time = 16,
-					events = {
-						"WinEnter",
-						"BufEnter",
-						"BufWritePost",
-						"SessionLoadPost",
-						"FileChangedShellPost",
-						"VimResized",
-						"Filetype",
-						"CursorMoved",
-						"CursorMovedI",
-						"ModeChanged",
-					},
 				},
 			},
 			sections = {
 				lualine_a = { "branch" },
 				lualine_b = { "filename" },
-				lualine_c = { "diagnostics" },
+				lualine_c = {
+					"mode",
+					getNowPlaying,
+					"diagnostics",
+				},
 				lualine_x = {
+					function()
+						return "神は死んだ"
+					end,
 					function()
 						return "::ARCH-LINUX"
 					end,
@@ -54,7 +54,7 @@ return {
 				},
 				lualine_z = {
 					function()
-						return "::HAJAR"
+						return "::HAJORA"
 					end,
 				},
 			},
