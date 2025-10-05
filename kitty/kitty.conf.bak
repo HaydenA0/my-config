@@ -2787,19 +2787,21 @@
 
 
 
+	    
 
 
-	font_family      family='JetBrainsMonoNL Nerd Font Mono' style=Regular
+	font_family      family="JetBrainsMono Nerd Font Mono"
 	bold_font        auto
 	italic_font      auto
 	bold_italic_font auto
+
 	font_size 18
 	confirm_os_window_close 0
 
 	map ctrl+equal increase_font_size
 	map ctrl+minus decrease_font_size
 	map ctrl+0     reset_font_size    
-	background_opacity 0.0
+	background_opacity 0.9
 	window_padding_width 0
 	cursor_shape block
 	cursor_beam_thickness 1.5
@@ -2851,10 +2853,3 @@
 	map ctrl+up neighboring_window up
 	map ctrl+down neighboring_window down
 
-
-
-
-
-# BEGIN_KITTY_FONTS
-# END_KITTY_FONTS
-#
