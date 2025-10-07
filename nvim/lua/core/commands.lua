@@ -1,6 +1,3 @@
---[[
-  Clears all comments from the current buffer.
-]]
 local function clear_comments()
 	local commentstring = vim.bo.commentstring
 	if not commentstring or commentstring == "" then
@@ -8,12 +5,10 @@ local function clear_comments()
 		return
 	end
 
-	-- Escape special characters for Lua patterns
 	local comment_pattern = commentstring:gsub("%%s", ""):gsub("([%^%$%(%)%%%.%[%]%*%+%-%?])", "%%%1")
 
 	local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
 	for i, line in ipairs(lines) do
-		-- Replace comment and any trailing whitespace with nothing
 		lines[i] = line:gsub("%s*" .. comment_pattern .. ".*", "")
 	end
 
@@ -25,9 +20,6 @@ vim.api.nvim_create_user_command("ClearComments", clear_comments, {
 	desc = "Remove all comments from the current buffer",
 })
 
---[[
-  Deletes all listed buffers except for the current one.
-]]
 local function clean_buffers()
 	local current = vim.api.nvim_get_current_buf()
 	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
@@ -38,18 +30,52 @@ local function clean_buffers()
 	print("Cleaned all other buffers.")
 end
 
--- Assigning to _G makes it globally accessible if needed, but defining it locally is fine too.
 _G.cleanBuffers = clean_buffers
 vim.api.nvim_create_user_command("CleanBuffers", clean_buffers, {
 	desc = "Close all buffers except the current one",
 })
 
---[[
-  Custom command to run a project-specific script.
-]]
-vim.api.nvim_create_user_command("RunCCode4Me", function()
-	vim.cmd("!./run.sh")
+vim.api.nvim_create_user_command("RunFile", function(args)
+	local file_path = vim.api.nvim_buf_get_name(0)
+	if file_path == "" then
+		vim.notify("Error: Buffer is not associated with a file. Please save it first.", vim.log.levels.ERROR)
+		return
+	end
+
+	local command_to_run
+	if file_path:match("%.c$") then
+		command_to_run = "./run.sh"
+	elseif file_path:match("%.py$") then
+		command_to_run = "python3 " .. vim.fn.shellescape(file_path)
+	else
+		vim.notify("Error: No run command configured for this file type.", vim.log.levels.ERROR)
+		return
+	end
+
+	local output_to_buffer = (args.fargs[1] == "editable=true")
+
+	if output_to_buffer then
+		vim.notify("Running: " .. command_to_run .. " (capturing output)", vim.log.levels.INFO)
+
+		local output_lines = vim.fn.systemlist(command_to_run .. " 2>&1")
+
+		local buf = vim.api.nvim_create_buf(false, true)
+
+		vim.cmd("botright split")
+
+		vim.api.nvim_win_set_buf(0, buf)
+
+		vim.api.nvim_buf_set_option(buf, "filetype", "text")
+		vim.api.nvim_buf_set_option(buf, "modifiable", true)
+
+		vim.api.nvim_buf_set_lines(buf, 0, -1, false, output_lines)
+
+		vim.notify("Output captured in a new editable buffer.", vim.log.levels.INFO)
+	else
+		vim.notify("Running: !" .. command_to_run, vim.log.levels.INFO)
+		vim.cmd("!" .. command_to_run)
+	end
 end, {
-	nargs = 0,
-	desc = "Execute the project-specific ./run.sh script",
+	nargs = "?",
+	desc = "Run file. Pass 'editable=true' to pipe output to a new buffer.",
 })

@@ -3,7 +3,7 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		local function getNowPlaying()
-			local command = "playerctl -p spotify metadata --format '{{artist}} 󰻂 {{title}} - Vibing' 2>/dev/null"
+			local command = "playerctl -p spotify metadata --format '{{artist}} 󰻂 {{title}}' 2>/dev/null"
 			local pipe = io.popen(command)
 
 			if not pipe then

@@ -19,7 +19,7 @@ return {
 					python = {
 						command = { "ipython", "--no-autoindent" },
 					},
-					        block_dividers = { "#%%", "# %%" },    -- key line
+					block_dividers = { "#%%", "# %%" }, -- key line
 					-- Add any other languages you use here
 					-- lua = {
 					--   command = { "lua" },
@@ -47,8 +47,8 @@ return {
 
 				-- Send the entire file to the REPL
 				send_file = "<leader>sf",
-				-- Send a block 
-				  send_code_block          = "<space>sb",
+				-- Send a block
+				send_code_block = "<space>sb",
 
 				-- Other useful mappings
 				cr = "<leader>s<cr>", -- Send and execute line
@@ -70,32 +70,6 @@ return {
 		-- This is mapped here because it uses custom logic not available in iron's keymaps table.
 		-- NOTE: <A-Tab> might not work in all terminals. If it doesn't,
 		-- you can change it to another mapping like "<leader>rf" (repl-focus).
-		vim.keymap.set("n", "<A-Tab>", function()
-			local iron_core = require("iron.core")
-			local iron_view = require("iron.view")
-
-			-- If no REPL is running, there's nothing to focus
-			if vim.tbl_isempty(iron_core.buffers) then
-				vim.notify("No active Iron REPL.", vim.log.levels.WARN, { title = "Iron" })
-				return
-			end
-
-			local repl_win_nr = iron_view.get_current_repl_winnr()
-
-			-- If the REPL window is hidden, :IronFocus will un-hide and focus it
-			if not repl_win_nr or not vim.api.nvim_win_is_valid(repl_win_nr) then
-				vim.cmd("IronFocus")
-				return
-			end
-
-			-- If we are already in the REPL window, jump back to the previous window
-			if vim.api.nvim_get_current_win() == repl_win_nr then
-				vim.cmd("wincmd p")
-			-- Otherwise, focus the REPL window
-			else
-				vim.cmd("IronFocus")
-			end
-		end, { desc = "Iron: Toggle focus between code and REPL", noremap = true, silent = true })
 	end,
 }
 
@@ -106,4 +80,4 @@ return {
 -- <leader>sf	Send the entire File
 -- <leader>rq	Quit and exit the REPL process
 -- <leader>rc	Clear the REPL screen
--- <leader>sb	Send a block 
+-- <leader>sb	Send a block

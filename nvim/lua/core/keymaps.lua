@@ -42,17 +42,8 @@ keymap("n", "<leader>r", function()
 	require("telescope").extensions.neoclip.default()
 end, { desc = "Open Neoclip registers" })
 
--- PDFView
-keymap("n", "<leader>jj", "<cmd>:lua require('pdfview.renderer').next_page()<CR>", { desc = "PDFview: Next page" })
-keymap(
-	"n",
-	"<leader>kk",
-	"<cmd>:lua require('pdfview.renderer').previous_page()<CR>",
-	{ desc = "PDFview: Previous page" }
-)
-
 -- Floaterm
 keymap("n", "<C-;>", ":FloatermToggle<CR>", { desc = "Toggle floating terminal" })
 
 -- Custom Commands Keymaps
-keymap("n", "<A-S-Enter>", ":RunCCode4Me<CR>", { noremap = true, silent = true, desc = "Run C code (./run.sh)" })
+keymap("n", "<A-S-Enter>", ":RunFile<CR>", { noremap = true, silent = true, desc = "Run C code (./run.sh)" })
