@@ -36,12 +36,10 @@ return {
 				},
 			},
 			sections = {
-				lualine_a = { "branch" },
-				lualine_b = { "filename" },
+				lualine_b = { "branch" },
+				lualine_a = { "filename", "mode" },
 				lualine_c = {
-					"mode",
 					getNowPlaying,
-					"diagnostics",
 				},
 				lualine_x = {
 					function()
@@ -58,7 +56,7 @@ return {
 				},
 				lualine_z = {
 					function()
-						return "::HAJORA"
+						return "::MY WORLD"
 					end,
 				},
 			},

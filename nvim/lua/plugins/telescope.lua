@@ -16,7 +16,7 @@ return {
 
 			vim.keymap.set("n", "<leader><leader>", builtin.find_files, { desc = "Find files in current directory" })
 
-			vim.keymap.set("n", "<C-f>", function()
+			vim.keymap.set("n", "<leader>fh", function()
 				builtin.find_files({ cwd = vim.env.HOME })
 			end, { desc = "Find files in home" })
 

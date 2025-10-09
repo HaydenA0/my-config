@@ -57,7 +57,7 @@ element-text {
 
 #scrollbar {
     handle-color: #3a3f4a;
-    handle-width: 4px ;
+    handle-width: 0px ;
     padding: 0;
 }
 

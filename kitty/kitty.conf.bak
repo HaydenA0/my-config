@@ -2790,18 +2790,18 @@
 	    
 
 
-	font_family      family="JetBrainsMono Nerd Font Mono"
+	font_family      family="JetBrainsMono Nerd Font Mono"  
 	bold_font        auto
 	italic_font      auto
 	bold_italic_font auto
 
-	font_size 18
+	font_size 16
 	confirm_os_window_close 0
 
 	map ctrl+equal increase_font_size
 	map ctrl+minus decrease_font_size
 	map ctrl+0     reset_font_size    
-	background_opacity 0.9
+	background_opacity 0.0
 	window_padding_width 0
 	cursor_shape block
 	cursor_beam_thickness 1.5
@@ -2816,9 +2816,6 @@
 	tab_bar_edge top
 
 	tab_title_template  "{index}"
-	tab_bar_background      #000000
-	active_tab_background   #DDDDDD
-	inactive_tab_background #555555
 
 	# tab_bar_edge top          
 	tab_bar_margin_width 0    
@@ -2829,27 +2826,11 @@
 	    
 	allow_remote_control yes
 
-	enabled_layouts splits:split_axis=horizontal
 
 
-	map ctrl+left resize_window narrower
-	map ctrl+right resize_window wider
-	map ctrl+up resize_window taller
-	map ctrl+down resize_window shorter 3
 
 
-	map shift+up move_window up
-	map shift+left move_window left
-	map shift+right move_window right
-	map shift+down move_window down
 
-	map ctrl+shift+up layout_action move_to_screen_edge top
-	map ctrl+shift+left layout_action move_to_screen_edge left
-	map ctrl+shift+right layout_action move_to_screen_edge right
-	map ctrl+shift+down layout_action move_to_screen_edge bottom
 
-	map ctrl+left neighboring_window left
-	map ctrl+right neighboring_window right
-	map ctrl+up neighboring_window up
-	map ctrl+down neighboring_window down
+
 

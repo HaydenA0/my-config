@@ -74,7 +74,6 @@ return {
 }
 
 -- <leader>rr	Open / Close (Toggle) the REPL window
--- <A-Tab>	Switch focus between code and REPL
 -- <leader>sl	Send the current Line
 -- <leader>sc	Send the visual selection (Code block)
 -- <leader>sf	Send the entire File
