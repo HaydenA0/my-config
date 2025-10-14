@@ -2784,16 +2784,10 @@
 	# map cmd+q quit
 
 	#: }}}
-
-
-
-	    
-
-
-	font_family      family="JetBrainsMono Nerd Font Mono"  
-	bold_font        auto
-	italic_font      auto
-	bold_italic_font auto
+# font_family      family="JetBrainsMono Nerd Font Mono"  
+# bold_font        auto
+# italic_font      auto
+# bold_italic_font auto
 
 	font_size 16
 	confirm_os_window_close 0
@@ -2802,7 +2796,7 @@
 	map ctrl+minus decrease_font_size
 	map ctrl+0     reset_font_size    
 	background_opacity 0.0
-	window_padding_width 0
+	window_padding_width 10
 	cursor_shape block
 	cursor_beam_thickness 1.5
 	cursor_underline_thickness 2.0
@@ -2815,7 +2809,7 @@
 	tab_bar_align center
 	tab_bar_edge top
 
-	tab_title_template  "{index}"
+	tab_title_template  "{index} : {title}"
 
 	# tab_bar_edge top          
 	tab_bar_margin_width 0    
@@ -2834,3 +2828,17 @@
 
 
 
+
+
+# BEGIN_KITTY_FONTS
+font_family      family='BlexMono Nerd Font Mono' style=Medium
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+# END_KITTY_FONTS
+#
+#
+#
+#
+#
+#

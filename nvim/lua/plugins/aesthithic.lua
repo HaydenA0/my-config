@@ -77,23 +77,111 @@
 -- }
 -- Using Lazy
 
+-- return {
+-- 	{
+-- 		"vague2k/vague.nvim",
+-- 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+-- 		priority = 1000, -- make sure to load this before all the other plugins
+-- 		config = function()
+-- 			require("vague").setup({
+-- 				transparent = true, -- don't set background
+-- 				bold = true,
+-- 				italic = true,
+-- 				style = {
+-- 					boolean = "bold",
+-- 					number = "bold",
+-- 					float = "bold",
+-- 					error = "bold",
+-- 					comments = "bold",
+-- 					conditionals = "bold",
+-- 					functions = "bold",
+-- 					headings = "bold",
+-- 					operators = "bold",
+-- 					strings = "bold",
+-- 					variables = "bold",
+-- 					keywords = "bold",
+-- 					keyword_return = "bold",
+-- 					keywords_loop = "bold",
+-- 					keywords_label = "bold",
+-- 					keywords_exception = "bold",
+-- 					builtin_constants = "bold",
+-- 					builtin_functions = "bold",
+-- 					builtin_types = "bold",
+-- 					builtin_variables = "bold",
+-- 				},
+-- 				plugins = {
+-- 					cmp = {
+-- 						match = "bold",
+-- 						match_fuzzy = "bold",
+-- 					},
+-- 					dashboard = {
+-- 						footer = "bold",
+-- 					},
+-- 					lsp = {
+-- 						diagnostic_error = "bold",
+-- 						diagnostic_hint = "bold",
+-- 						diagnostic_info = "bold",
+-- 						diagnostic_ok = "bold",
+-- 						diagnostic_warn = "bold",
+-- 					},
+-- 					neotest = {
+-- 						focused = "bold",
+-- 						adapter_name = "bold",
+-- 					},
+-- 					telescope = {
+-- 						match = "bold",
+-- 					},
+-- 				},
+-- 				on_highlights = function(highlights, colors) end,
+-- 				colors = {
+-- 					bg = "#141415",
+-- 					inactiveBg = "#1c1c24",
+-- 					fg = "#cdcdcd",
+-- 					floatBorder = "#878787",
+-- 					line = "#252530",
+-- 					comment = "#606079",
+-- 					builtin = "#b4d4cf",
+-- 					func = "#c48282",
+-- 					string = "#e8b589",
+-- 					number = "#e0a363",
+-- 					property = "#c3c3d5",
+-- 					constant = "#aeaed1",
+-- 					parameter = "#bb9dbd",
+-- 					visual = "#333738",
+-- 					error = "#d8647e",
+-- 					warning = "#f3be7c",
+-- 					hint = "#7e98e8",
+-- 					operator = "#90a0b5",
+-- 					keyword = "#6e94b2",
+-- 					type = "#9bb4bc",
+-- 					search = "#405065",
+-- 					plus = "#7fa563",
+-- 					delta = "#f3be7c",
+-- 				},
+-- 			})
+-- 			vim.cmd("colorscheme vague")
+-- 		end,
+-- 	},
+-- 	{
+-- 		"karb94/neoscroll.nvim",
+-- 		opts = {},
+-- 	},
+-- }
+
 return {
 	{
-		"vague2k/vague.nvim",
-		lazy = false, -- make sure we load this during startup if it is your main colorscheme
-		priority = 1000, -- make sure to load this before all the other plugins
-		config = function()
-			-- NOTE: you do not need to call setup if you don't want to.
-			require("vague").setup({
-				transparent = true,
-
-				-- optional configuration here
-			})
-			vim.cmd("colorscheme vague")
+		"brendon-felix/anysphere.nvim",
+		lazy = false, -- Load immediately at startup
+		priority = 1000, -- Ensure it loads before other plugins
+		config = function(_, opts)
+			require("anysphere").setup(opts) -- Apply user options (optional)
+			vim.cmd([[colorscheme anysphere]]) -- Set the colorscheme
 		end,
-	},
-	{
-		"karb94/neoscroll.nvim",
-		opts = {},
+		opts = {
+			-- You can optionally customize highlight settings if supported.
+			-- Example (from gruvbox-style config base):
+			contrast = "medium", -- "soft", "medium", or "hard"
+			transparent_mode = false,
+		},
 	},
 }
