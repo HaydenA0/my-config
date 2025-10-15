@@ -31,16 +31,16 @@
             "key": "OSS  ",
             "keyColor": "33",
         },
+        {
+            "type": "battery",
+            "key": "BATT  ",
+            "keyColor": "34",
+        },
 		
         {
             "type": "disk",
             "key": "DIK  ",
             "keyColor": "38", 
-        },
-        {
-            "type": "uptime",
-            "key": "UPT  ",
-            "keyColor": "40", 
         },
 		{
     "type": "custom",

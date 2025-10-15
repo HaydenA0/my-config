@@ -41,14 +41,7 @@ return {
 				lualine_c = {
 					getNowPlaying,
 				},
-				lualine_x = {
-					function()
-						return "神は死んだ"
-					end,
-					function()
-						return "::ARCH-LINUX"
-					end,
-				},
+				lualine_x = {},
 				lualine_y = {
 					function()
 						return "::UNIX-07"
