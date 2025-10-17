@@ -181,7 +181,7 @@ return {
 			-- You can optionally customize highlight settings if supported.
 			-- Example (from gruvbox-style config base):
 			contrast = "medium", -- "soft", "medium", or "hard"
-			transparent_mode = false,
+			transparent_mode = true,
 		},
 	},
 }
