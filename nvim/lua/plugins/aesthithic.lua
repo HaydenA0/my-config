@@ -168,20 +168,29 @@
 -- 	},
 -- }
 
+-- return {
+-- 	{
+-- 		"brendon-felix/anysphere.nvim",
+-- 		lazy = false, -- Load immediately at startup
+-- 		priority = 1000, -- Ensure it loads before other plugins
+-- 		config = function(_, opts)
+-- 			require("anysphere").setup(opts) -- Apply user options (optional)
+-- 			vim.cmd([[colorscheme anysphere]]) -- Set the colorscheme
+-- 		end,
+-- 		opts = {
+-- 			-- You can optionally customize highlight settings if supported.
+-- 			-- Example (from gruvbox-style config base):
+-- 			contrast = "medium", -- "soft", "medium", or "hard"
+-- 			transparent_mode = true,
+-- 		},
+-- 	},
+-- }
+--
 return {
-	{
-		"brendon-felix/anysphere.nvim",
-		lazy = false, -- Load immediately at startup
-		priority = 1000, -- Ensure it loads before other plugins
-		config = function(_, opts)
-			require("anysphere").setup(opts) -- Apply user options (optional)
-			vim.cmd([[colorscheme anysphere]]) -- Set the colorscheme
-		end,
-		opts = {
-			-- You can optionally customize highlight settings if supported.
-			-- Example (from gruvbox-style config base):
-			contrast = "medium", -- "soft", "medium", or "hard"
-			transparent_mode = true,
-		},
-	},
+	"uZer/pywal16.nvim",
+	-- for local dev replace with:
+	-- dir = '~/your/path/pywal16.nvim',
+	config = function()
+		vim.cmd.colorscheme("pywal16")
+	end,
 }

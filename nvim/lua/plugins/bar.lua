@@ -36,8 +36,8 @@ return {
 				},
 			},
 			sections = {
-				lualine_b = { "branch" },
-				lualine_a = { "filename", "mode" },
+				lualine_b = { "filename" },
+				lualine_a = { "branch", "mode" },
 				lualine_c = {
 					getNowPlaying,
 				},
