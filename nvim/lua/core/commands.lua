@@ -44,7 +44,7 @@ vim.api.nvim_create_user_command("RunFile", function(args)
 
 	local command_to_run
 	if file_path:match("%.c$") then
-		command_to_run = "./run.sh"
+		command_to_run = "make run"
 	elseif file_path:match("%.py$") then
 		command_to_run = "python3 " .. vim.fn.shellescape(file_path)
 	else

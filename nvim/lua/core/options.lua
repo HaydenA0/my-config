@@ -11,7 +11,10 @@ vim.o.timeoutlen = 250
 vim.o.conceallevel = 2
 vim.o.concealcursor = "nc"
 vim.opt.cmdheight = 0 -- Hide command line unless in use
-
+vim.opt.tabstop = 8
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 -- Diagnostic configuration
 vim.diagnostic.config({
 	virtual_text = {

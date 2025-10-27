@@ -46,4 +46,4 @@ end, { desc = "Open Neoclip registers" })
 keymap("n", "<C-/>", ":FloatermToggle<CR>", { desc = "Toggle floating terminal" })
 
 -- Custom Commands Keymaps
-keymap("n", "<A-S-Enter>", ":RunFile<CR>", { noremap = true, silent = true, desc = "Run C code (./run.sh)" })
+keymap("n", "<A-S-Enter>", ":RunFile<CR>", { noremap = true, silent = true, desc = "Run C code " })
