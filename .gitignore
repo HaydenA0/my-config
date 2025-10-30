@@ -21,6 +21,7 @@
 !/rofi/**
 !/spicetify/**
 !/nvim/**
+!/waybar/**
 
 !.p10k.zsh
 !.zsh_history

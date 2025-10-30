@@ -2,26 +2,6 @@ return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
-		local function getNowPlaying()
-			local command = "playerctl -p spotify metadata --format '{{artist}} 󰻂 {{title}}' 2>/dev/null"
-			local pipe = io.popen(command)
-
-			if not pipe then
-				return "No vibes"
-			end
-
-			local output = pipe:read("*a")
-			pipe:close()
-
-			local clean_output = output:match("^%s*(.-)%s*$")
-
-			if clean_output and clean_output ~= "" then
-				return "🎵 " .. clean_output
-			else
-				return "No vibes"
-			end
-		end
-
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
@@ -38,9 +18,7 @@ return {
 			sections = {
 				lualine_b = { "filename" },
 				lualine_a = { "branch", "mode" },
-				lualine_c = {
-					getNowPlaying,
-				},
+				lualine_c = {},
 				lualine_x = {},
 				lualine_y = {
 					function()
